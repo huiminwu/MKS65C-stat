@@ -5,8 +5,8 @@
 
 int main() {
 
-
-	char * path = "happy.txt";
+    char * str = malloc(sizeof(*str));
+	char * path = "huck.txt";
 
 	struct stat * buff = malloc(sizeof(struct stat));
 
@@ -17,7 +17,21 @@ int main() {
 	printf("Size:                %ld\n"  , buff->st_size);
 	printf("Permissions:         %o\n"   , buff->st_mode);	
 	printf("Time of Last Access: %ld\n"  , buff->st_atime);
-	printf("\n");	
+	printf("\n");
 
+    long size = buff->st_size;
+    if(size > 1000000000) {
+        sprintf(str, "%f", size / 1000000000.0);
+        printf("%s GB", str);
+    } else if (size > 1000000) {
+        sprintf(str, "%f", size / 1000000.0);
+        printf("%s MB", str);
+    } else if (size > 1000) {
+        sprintf(str, "%f", size / 1000.0);
+        printf("%s KB", str);
+    } else {
+        sprintf(str, "%ld", size);
+        printf("%s B", str);
+    }
 	return 0;
 }
