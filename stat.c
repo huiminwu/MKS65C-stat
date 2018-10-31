@@ -22,16 +22,16 @@ int main() {
     long size = buff->st_size;
     if(size > 1000000000) {
         sprintf(str, "%f", size / 1000000000.0);
-        printf("%s GB", str);
+        printf("%s GB\n", str);
     } else if (size > 1000000) {
         sprintf(str, "%f", size / 1000000.0);
-        printf("%s MB", str);
+        printf("%s MB\n", str);
     } else if (size > 1000) {
         sprintf(str, "%f", size / 1000.0);
-        printf("%s KB", str);
+        printf("%s KB\n", str);
     } else {
         sprintf(str, "%ld", size);
-        printf("%s B", str);
+        printf("%s B\n", str);
     }
 	return 0;
 }
